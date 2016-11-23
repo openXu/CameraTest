@@ -1,0 +1,154 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <!-- 显示预览图形 -->
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--展示照片容器-->
+        <HorizontalScrollView
+            android:id="@+id/hs_photos"
+            android:background="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/ll_photos"
+                android:layout_width="fill_parent"
+                android:layout_height="100dip"
+                android:orientation="horizontal"/>
+        </HorizontalScrollView>
+
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/hs_photos"
+            android:background="#00000000">
+            <ImageView
+                android:id="@+id/iv_flash"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:src="@drawable/camera_flash_off" />
+
+            <ImageView
+                android:id="@+id/iv_change"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:src="@drawable/camera_flip" />
+
+        </RelativeLayout>
+
+        <!--焦点-->
+        <RelativeLayout
+            android:id="@+id/rl_camera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/hs_photos"
+            android:layout_above="@+id/rl_ctrl" >
+            <com.openxu.camera.CameraGrid
+                android:id="@+id/cameraLin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <View
+                android:id="@+id/focusView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/cam_focus"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <!--控制按钮-->
+        <RelativeLayout
+            android:id="@+id/rl_ctrl_out"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/rl_ctrl"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#000000"
+                android:gravity="center_vertical"
+                android:padding="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="#ffffff"
+                        android:text="请根据示例进行拍照，至少三张照片"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="20dip"
+                        android:orientation="horizontal">
+                        <Button
+                            android:id="@+id/btn_takePhoto"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/moduleqygl_takemorephoto_btn_paizhao" />
+
+                        <ImageView
+                            android:id="@+id/back"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="25dp"
+                            android:padding="5dp"
+                            android:src="@drawable/camera_back" />
+
+                        <ImageView
+                            android:id="@+id/next"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="25dp"
+                            android:padding="5dp"
+                            android:src="@drawable/camera_library" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+            <!--示例按钮-->
+            <Button
+                android:id="@+id/btn_sample"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/moduleqygl_takemorephoto_icon_shili"/>
+
+        </RelativeLayout>
+        <!--控制按钮完毕-->
+
+    </RelativeLayout>
+
+</FrameLayout>
